@@ -9,22 +9,22 @@ package sp4_console_tort_lecornec;
  * @author 33782
  */
 public class Partie {
-    public attribuerCouleursAuxJoueurs() {
-        //on fair un tirage aleatoire entre 0 et 1
-        String joueur1;
-        String joueur2;
-        String jaune;
-        String rouge;
-        if (couleuraleat==0){
-            joueur1=jaune;
+    
+    String joueurCourant;
+    String grilleJeu;
+    public void attribuerCouleursAuxJoueurs() {    
+        // faire un tirage aleatoire entre 0 et 1 et le mettre dans la variable aleat
+        if (aleat==0){
+            joueur1=jaune;  //on attribue les couleurs aux 2 joueuyrs (utiliser
             joueur2=rouge;
             System.out.println ("Vous êtes le Joueur 1, et vous avez les les jetons jaunes");
                     }
-        else if (couleuraleat==1) {
+        else  {
             joueur1=rouge;
             joueur2=jaune;
             System.out.println ("Vous êtes le Joueur 1, et vous avez les les jetons rouges");
     }
+        
 }
 
 }
