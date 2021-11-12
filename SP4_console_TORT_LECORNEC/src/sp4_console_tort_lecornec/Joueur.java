@@ -11,5 +11,40 @@ package sp4_console_tort_lecornec;
 public class Joueur {
     String Nom;
     String Couleur; 
-    int jeton [] = new jeton [10]
+    Jeton ListeJetons [] = new Jeton [21];//décrivant les jetons encore en possession du joueur
+    int nombreDesintegrateurs;
+    int nombreJetonsRestants;
+    public Joueur (String nomJ){
+    Nom = nomJ ;
+    }
+    public void affecterCouleur(String Colorj){ 
+        Couleur = Colorj;
+    }
+    public boolean ajouterJeton (Jeton J ){
+        int i=0;
+        while (ListeJetons [i]!=null){
+            i+=1;
+            if (i==20){
+                boolean reponse= false;
+            }
+     
+        }
+        ListeJetons [i]=J;
+        boolean reponse = true;
+        return reponse;
+        
+        
+    
+    
+}    
+public void obtenirDesintegrateur(){
+    
+    // A FAIRE PLUS TARD 
+    
+}
+public boolean utiliserDesintegrateur(){
+    
+        // A FAIRE PLUS TARD 
+    
+}
 }

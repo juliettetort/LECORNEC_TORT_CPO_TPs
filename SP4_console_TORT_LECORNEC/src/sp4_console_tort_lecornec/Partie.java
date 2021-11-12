@@ -9,7 +9,7 @@ package sp4_console_tort_lecornec;
  * @author 33782
  */
 public class Partie {
-    public attribuerCouleursAuxJoueurs() {
+    public void attribuerCouleursAuxJoueurs() {
         //on fair un tirage aleatoire entre 0 et 1
         String joueur1;
         String joueur2;
