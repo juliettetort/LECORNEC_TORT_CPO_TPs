@@ -69,9 +69,35 @@ public class Partie {
         public void debuterPartie() {
             // faire lancer la partie 
             initialiserPartie();
-            while ((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0])!=true)&&(grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1] !=true))){
-                System.out.println("Veuillez chosiir une actiobn parmis celles ci: ");
-                System.out.println("")
+            int nbColonne;
+            Scanner sc = new Scanner(System.in);
+            while ((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0])==false)&&(grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1] ==false))){
+                System.out.println("Que voulez vous faire? ");
+                System.out.println("1) Jouer un jeton ?");
+                System.out.println("2) Récupérer un de vos jetons ?");
+                System.out.println("3) Jouer un désintégrateur ?");
+                System.out.println("Entrez le chiffre correspondant à l'action que vous voulez réaliser");
+                int actionARealiser= sc.nextInt();
+                while ((actionARealiser!=1)&&(actionARealiser!=2)&&(actionARealiser!=3)){
+                    System.out.println("Veuillez rentrer un nombre compris entre 1 et 3");
+                    actionARealiser=sc.nextInt();
+                }
+                if (actionARealiser==1){
+                    if (joueurCourant.ListeJetons[20]==null) { //si la 21eme case de mes jetons est vide, ca veut dire que tous ceux d'avant ont été utilisés aussi
+                        System.out.println("Partie terminée, vous n'avez plus aucun jeton");
+                        break;
+                    }
+                    System.out.println("Dans quelle colonne souhaitez vous jouer ce jeton?");
+                    Scanner sc2=new Scanner (System.in);
+                    nbColonne=sc2.nextInt(); //a verifier
+                    
+                    boolean jetonJoue=grilleJeu.ajouterJetonDansColonne(joueurCourant, nbColonne);
+                    while(jetonJoue==false) {
+                        System.out.println("La colonne selectionnée est plein , choisissez-en une nouvelle");
+                        nbColonne=sc.nextInt();
+                        jetonJoue=grilleJeu.ajouterJetonDansColonne(joueurCourant, nbColonne);
+                    }
+                }
             }
         }
 }
