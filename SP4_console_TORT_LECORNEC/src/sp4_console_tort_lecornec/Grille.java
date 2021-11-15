@@ -70,7 +70,7 @@ public class Grille {
                  if (CellulesJeu[i][j].jetonCourant.lireCouleurDuJeton()== "vide"){
                     System.out.println ( "[/]");
                          
-                     }
+                     }// à compléter TN
                  }
                  
              }
@@ -85,7 +85,19 @@ public class Grille {
              // a completer
          }
      }
-     public 
+     public String lireCouleurDuJeton (int ligne , int colonne ){
+      return CellulesJeu[ligne][colonne].lireCouleurDuJeton();
+     }
+     
+     public boolean etreGagnantePourJoueur (Joueur joueur1){
+         for (int i=0; i<7; i++){
+             for (int j=0; j<6; j++){
+                 
+             }
+             
+         }
+         
+     }
 }
      
      
