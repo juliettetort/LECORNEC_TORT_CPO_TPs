@@ -24,12 +24,12 @@ public class Grille {
         }
      public boolean ajouterJetonDansColonne (Jeton JDansC, int colonne){
          //ajt le jeton dans la colonne 
-         if (jetonCourant==null) {
+         if (jetonCourant ==null) {
              return true;
          }
          else {
              return false;
-         }
+         }// a faire !!
          }
      
      public boolean etreRempli(){
@@ -61,19 +61,32 @@ public class Grille {
      public void afficherGrilleSurConsole (){
          for (int i=0; i<7; i++){
              for( int j=0; j<6; j++){
-                 if (CellulesJeu[i][j].jetonCourant == null){
-                   CellulesJeu[i][j].jetonCourant.lireCouleur();
-                 if (CellulesJeu[i][j].jetonCourant.Couleur =="rouge"){
-                     System.out.println ("[R]");
-                    
+                 if (CellulesJeu[i][j].jetonCourant.lireCouleurDuJeton()== "rouge"){
+                     System.out.println( "[R]");
+                 }
+                 if(CellulesJeu[i][j].jetonCourant.lireCouleurDuJeton()== "Jaune"){
+                     System.out.println ( "[J]");
+                 }
+                 if (CellulesJeu[i][j].jetonCourant.lireCouleurDuJeton()== "vide"){
+                    System.out.println ( "[/]");
                          
                      }
                  }
                  
              }
-         }
          
      }
-     
+     public boolean Occupee (int ligne , int colonne){
+         if (CellulesJeu [ligne][colonne] == null){
+             return false;
+         }
+         else {
+             return true;
+             // a completer
+         }
      }
+     public 
+}
+     
+     
     
