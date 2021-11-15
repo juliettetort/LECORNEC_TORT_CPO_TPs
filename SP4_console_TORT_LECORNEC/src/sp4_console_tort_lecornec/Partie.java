@@ -95,8 +95,39 @@ public class Partie {
                     while(jetonJoue==false) {
                         System.out.println("La colonne selectionnée est plein , choisissez-en une nouvelle");
                         nbColonne=sc.nextInt();
-                        jetonJoue=grilleJeu.ajouterJetonDansColonne(joueurCourant, nbColonne);
+                        jetonJoue=grilleJeu.ajouterJetonDansColonne(joueurCourant, nbColonne); //a modifier prochainement avec les nouveaux reglages dans la classe grille  
                     }
+                }
+                if(actionARealiser==2){
+                    int recupCol;
+                    int recupLigne;
+                    Scanner sc3= new Scanner( System.in);
+                    
+                    System.out.println("quelle est la ligne du jeton que vous sohaitez récuperer");
+                    recupLigne=sc3.nextInt();
+                    while ((recupLigne!=1)&&(recupLigne!=2)&&(recupLigne!=3)&&(recupLigne!=4)&&(recupLigne!=5)&&(recupLigne!=6)){
+                        System.out.println("veuillez recommmencer, la ligne doit etre comprise entre 1 et 6");
+                        recupLigne=sc3.nextInt();
+                    System.out.println("Super! maintenant, veuillez rentrer le numéro de colonne du jeton que vous voulez récupérer");
+                    recupCol=sc3.nextInt();
+                    while((recupCol!=1)&&(recupCol!=2)&&(recupCol!=3)&&(recupCol!=4)&&(recupCol!=5)&&(recupCol!=6)&&(recupCol!=7)){
+                        System.out.println("veuillez recommencer, la colonne doit etre comprise entre 1 et 7");
+                        recupCol=sc3.nextInt();
+                    }
+                        
+                    while ((grilleJeu.CellulesJeu[recupLigne][recupCol].jetonCourant==null) || grilleJeu.CellulesJeu[recupLigne][recupCol].lireCouleurDuJeton().equals(joueurCourant.Couleur)){//mettre avec la classe grille la facon de vérifier si il ya bien un jeton DE SA couleur a la case choisie 
+                            
+                            if (grilleJeu.CellulesJeu[recupLigne][recupCol].jetonCourant==null){
+                                
+                            }
+                    
+                    
+                            if (grilleJeu.CellulesJeu[recupLigne][recupCol].lireCouleurDuJeton().equals(joueurCourant.Couleur)){
+                                
+                            }
+                    }
+                    // augmenter de 1 le nbr de jetons du joueur correspondant
+                    //mettre avec la classe grille pour supprimer le jeton en question
                 }
             }
         }
