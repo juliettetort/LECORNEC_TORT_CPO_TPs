@@ -103,11 +103,12 @@ public class Partie {
                     int recupLigne;
                     Scanner sc3= new Scanner( System.in);
                     
-                    System.out.println("quelle est la ligne du jeton que vous sohaitez récuperer");
+                    System.out.println("quelle est la ligne du jeton que vous souhaitez récuperer");
                     recupLigne=sc3.nextInt();
                     while ((recupLigne!=1)&&(recupLigne!=2)&&(recupLigne!=3)&&(recupLigne!=4)&&(recupLigne!=5)&&(recupLigne!=6)){
                         System.out.println("veuillez recommmencer, la ligne doit etre comprise entre 1 et 6");
                         recupLigne=sc3.nextInt();
+                    }
                     System.out.println("Super! maintenant, veuillez rentrer le numéro de colonne du jeton que vous voulez récupérer");
                     recupCol=sc3.nextInt();
                     while((recupCol!=1)&&(recupCol!=2)&&(recupCol!=3)&&(recupCol!=4)&&(recupCol!=5)&&(recupCol!=6)&&(recupCol!=7)){
@@ -115,20 +116,84 @@ public class Partie {
                         recupCol=sc3.nextInt();
                     }
                         
-                    while ((grilleJeu.CellulesJeu[recupLigne][recupCol].jetonCourant==null) || grilleJeu.CellulesJeu[recupLigne][recupCol].lireCouleurDuJeton().equals(joueurCourant.Couleur)){//mettre avec la classe grille la facon de vérifier si il ya bien un jeton DE SA couleur a la case choisie 
+                    while ((grilleJeu.CellulesJeu[recupLigne][recupCol].jetonCourant==null) || !grilleJeu.CellulesJeu[recupLigne][recupCol].lireCouleurDuJeton().equals(joueurCourant.Couleur)){//mettre avec la classe grille la facon de vérifier si il ya bien un jeton DE SA couleur a la case choisie 
                             
                             if (grilleJeu.CellulesJeu[recupLigne][recupCol].jetonCourant==null){
-                                
+                                System.out.println("vous devez utiliser ce pouvoir sur une case où il y a votre jeton, veuillez recommencer.");
                             }
                     
                     
-                            if (grilleJeu.CellulesJeu[recupLigne][recupCol].lireCouleurDuJeton().equals(joueurCourant.Couleur)){
-                                
+                            if (!grilleJeu.CellulesJeu[recupLigne][recupCol].lireCouleurDuJeton().equals(joueurCourant.Couleur)){
+                                System.out.println("vous devez utiliser ce pouvoir sur une case où il y a votre jeton, veuillez recommencer.");
+                               
                             }
+                            break;
                     }
+                    if ((grilleJeu.CellulesJeu[recupLigne][recupCol].lireCouleurDuJeton().equals(joueurCourant.Couleur))&&(grilleJeu.CellulesJeu[recupLigne][recupCol].jetonCourant!=null)){
+                        joueurCourant.ajouterJeton(grilleJeu.recupererJeton(recupLigne,recupCol)); //ca marchera quand juliette aura créé recupererJeton dans grille
+                        tasserGrille(recupCol); //ca marchera quand juliette aura créé la fonction dans la classe grille
+                        
+                    }
+                    break;
                     // augmenter de 1 le nbr de jetons du joueur correspondant
                     //mettre avec la classe grille pour supprimer le jeton en question
                 }
+                if (actionARealiser==3){
+                    int desintLigne;
+                    int desintCol;
+                    if (joueurCourant.nombreDesintegrateurs==0){
+                        System.out.println("vous ne pouvez pas efféctuer ce coup car vous n'avez plus de désintégrateurs");
+                        break;
+                    }
+                    while(grilleJeu.CellulesJeu[desintLigne][desintCol].jetonCourant==null) {
+                        System.out.println("quelle est la ligne du jeton que vous souhaitez désintégrer ?");
+                        desintLigne=sc.nextInt();
+                        while ((desintLigne!=1)&&(desintLigne!=2)&&(desintLigne!=3)&&(desintLigne!=4)&&(desintLigne!=5)&&(desintLigne!=6)){
+                            System.out.println("veuillez recommmencer, la ligne doit etre comprise entre 1 et 6");
+                            desintLigne=sc3.nextInt();
+                        }
+                        
+                        System.out.println("quelle est la colonne du jeton que vous souhaitez désintégrer ?");
+                        desintLigne=sc.nextInt();
+                        while ((desintCol!=1)&&(desintCol!=2)&&(desintCol!=3)&&(desintCol!=4)&&(desintCol!=5)&&(desintCol!=6)){
+                            System.out.println("veuillez recommmencer, la colonne doit etre comprise entre 1 et 7");
+                            desintCol=sc3.nextInt();                        
+                    }
+                    }
+                    grilleJeu.supprimerJeton(desintLigne,desintCol) ; //ca marchera quand supprimerJeton sera réalisé 
+                    grilleJeu.tasserGrille(desintCol);//ca marchera quand tasserCol sera créé
+                    joueurCourant.utiliserDesintegrateur();
+                    break;  
+                    }
+                //on a traité les cas pour toutes les actions possibles
+                }
+                
+            //on va maintenant faire alterner les tours, cad que le joueur qui va jouer va changer 
+                if (joueurCourant==ListeJoueurs[1]){
+                    joueurCourant=ListeJoueurs[0];
+                        }
+                if  (joueurCourant==ListeJoueurs[0]){
+                    joueurCourant=ListeJoueurs[1];
+                //on fait alterner les joueurs courants
             }
+                System.out.println("Bien joué, c'est au tour de "+joueurCourant.Nom);
+        }
+        if (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0])==true){
+            System.out.println("La partie est terminée, le gagnant est "+ListeJoueurs[0].Nom);
+        }
+        if (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1])==true){
+            System.out.println("La partie est terminée, le gagnant est "+ListeJoueurs[1].Nom);
         }
 }
+                    
+        
+        
+        
+                
+                
+            
+            
+        
+
+        
+
