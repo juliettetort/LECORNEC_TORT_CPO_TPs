@@ -163,9 +163,42 @@ return false;
      
             
         }
-    public 
+    public boolean placerTrouNoir (int i, int j) {
+    if (CellulesJeu[i][j].presenceTrouNoir()==false){
+        CellulesJeu[i][j].placerTrouNoir();
+        return true;
+    }
+    return false;
+        
+    }
+    
+    public boolean placerDesintegrateur (int i, int j ){
+     if (CellulesJeu [i][j].presenceDesintegrateur()==false){
+         CellulesJeu[i][j].placerDesintegrateur();
+         return true;
+     }
+     return false; 
+    }
+    public boolean supprimerJeton (int ligne, int colonne){
+        if(CellulesJeu[ligne][colonne].recupererJeton()!=null){
+            CellulesJeu[ligne][colonne].supprimerjeton();
+            return true;
+        }
+        
+      return false; 
+    }
+    public Jeton recupererJeton (int ligne, int colonne){
+       
+        return null;
+       
+    }
 }
     
+
+
+
+
+
 
      
      
