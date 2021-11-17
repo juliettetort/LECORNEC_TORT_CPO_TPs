@@ -85,7 +85,10 @@ public class Partie {
                 System.out.println("Dans quelle colonne souhaitez vous jouer ce jeton?");
                 Scanner sc2 = new Scanner(System.in);
                 nbColonne = sc2.nextInt(); //a verifier
-                
+                //il faut aller recuperer le jeton
+                jetonj=jetonCourant.ListeJetons[jetonCourant.nbrjetonrestant-1];
+                jetonCourant.listeJetons[jetonCourant.nbrjetonrestant-1]=null;
+                jetonCourant.nbrjetonrestant;
                
                 
 
