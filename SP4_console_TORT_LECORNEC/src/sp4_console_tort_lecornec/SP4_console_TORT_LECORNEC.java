@@ -17,7 +17,7 @@ public class SP4_console_TORT_LECORNEC {
 //bonjour juliette
 //tirage aleatoire avec start
 Jeton jeton1 =new Jeton("rouge");
-System.out.println(jeton1.lireCouleurDuJeton());
+System.out.println(jeton1.lireCouleur());
 Cellule cellule1= new Cellule();
 System.out.println(cellule1.lireCouleurDuJeton());  //affiche vide
 cellule1.affecterJeton(jeton1);

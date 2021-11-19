@@ -84,13 +84,13 @@ public class Grille {
      public void afficherGrilleSurConsole (){
          for (int i=0; i<6; i++){
              for( int j=0; j<7; j++){
-                 if ("rouge".equals(CellulesJeu[i][j].jetonCourant.lireCouleurDuJeton())){
+                 if ("rouge".equals(CellulesJeu[i][j].jetonCourant.lireCouleur())){
                      System.out.print( "[R]");
                  }
-                 if("Jaune".equals(CellulesJeu[i][j].jetonCourant.lireCouleurDuJeton())){
+                 if("Jaune".equals(CellulesJeu[i][j].jetonCourant.lireCouleur())){
                      System.out.print( "[J]");
                  }
-                 if ("vide".equals(CellulesJeu[i][j].jetonCourant.lireCouleurDuJeton())){
+                 if ("vide".equals(CellulesJeu[i][j].jetonCourant.lireCouleur())){
                     System.out.print ( "[/]");
                                           
                   }

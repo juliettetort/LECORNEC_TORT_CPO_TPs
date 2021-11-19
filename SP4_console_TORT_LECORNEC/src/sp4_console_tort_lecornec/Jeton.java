@@ -20,12 +20,10 @@ String Couleur;
 public  Jeton (String color) {
     Couleur=color;
 }
-public void lireCouleur() {
+public String lireCouleur() {
     System.out.println("Le jeton est de la couleur"+ Couleur);
+    return Couleur;
     
 }
 
-    String lireCouleurDuJeton() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
