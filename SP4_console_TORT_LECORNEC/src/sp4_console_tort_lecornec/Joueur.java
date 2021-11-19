@@ -38,12 +38,18 @@ public class Joueur {
     
 }    
 public void obtenirDesintegrateur(){
-    
+    nombreDesintegrateurs=nombreDesintegrateurs+1;
     // A FAIRE PLUS TARD 
     
 }
 public boolean utiliserDesintegrateur(){
-    
+    nombreDesintegrateurs=nombreDesintegrateurs-1;
+    if(nombreDesintegrateurs==-1){  // on a deja enlevé 1 au nbr de desintegrateurs, on verifie qu il n y en avait pas 0 lors de la manip
+        return false;
+    }
+    else{
+        return true;
+    }
         // A FAIRE PLUS TARD 
     
 }

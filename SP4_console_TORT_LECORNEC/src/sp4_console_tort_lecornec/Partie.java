@@ -63,8 +63,9 @@ public class Partie {
 
     public void debuterPartie() {
         // faire lancer la partie 
+        
         initialiserPartie();
-        int nbColonne;
+        int nbCol;
         Scanner sc = new Scanner(System.in);
         while ((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) == false) && (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) == false)) {
             System.out.println("Que voulez vous faire? ");
@@ -84,21 +85,33 @@ public class Partie {
                 }
                 System.out.println("Dans quelle colonne souhaitez vous jouer ce jeton?");
                 Scanner sc2 = new Scanner(System.in);
-                nbColonne = sc2.nextInt(); //a verifier
+                
+                nbCol = sc2.nextInt()-1; //a verifier
+                while ((nbCol!=1)&&(nbCol!=2)&&(nbCol!=3)&&(nbCol!=4)&&(nbCol!=5)&&(nbCol!=6)){
+                    System.out.println("Veuillez entrer un numéro de colonne compris entre 1 et 6");
+                    nbCol=sc2.nextInt()-1;
+                }
                 //il faut aller recuperer le jeton
-                jetonj=jetonCourant.ListeJetons[jetonCourant.nbrjetonrestant-1];
-                jetonCourant.listeJetons[jetonCourant.nbrjetonrestant-1]=null;
-                jetonCourant.nbrjetonrestant;
+                //jetonJoue=jetonCourant.ListeJetons[jetonCourant.nombreJetonsRestants-1];
+                //jetonCourant.listeJetons[jetonCourant.nombreJetonsRestants-1]=null;
+                //jetonCourant.nombreJetonsRestants;
+                while (grilleJeu.colonneRemplie(nbCol)==true){
+                    System.out.println("Cette colonne est remplie, selectionne-en une autre.");
+                    nbCol=sc2.nextInt()-1;
+                }
                
+                grilleJeu.ajouterJetonDansColonne(joueurCourant, nbCol);//pb avec joueurCourant
+                joueurCourant.nombreJetonsRestants=joueurCourant.nombreJetonsRestants-1;
+                
                 
 
-                boolean jetonJoue = grilleJeu.ajouterJetonDansColonne(, nbColonne); //ici c est le jeton qui doit etre en parametre
-                while (jetonJoue == false) {
-                    System.out.println("La colonne selectionnée est plein , choisissez-en une nouvelle");
-                    nbColonne = sc.nextInt();
-                    jetonJoue = grilleJeu.ajouterJetonDansColonne(, nbColonne); //a modifier prochainement avec les nouveaux reglages dans la classe grille  
+                //boolean jetonJoue = grilleJeu.ajouterJetonDansColonne(jetonJoue, nbCol); //ici c est le jeton qui doit etre en parametre
+                //while (jetonJoue == false) {
+                    //System.out.println("La colonne selectionnée est pleine , choisissez-en une nouvelle");
+                    //nbCol = sc.nextInt()-1;
+                    //jetonJoue = grilleJeu.ajouterJetonDansColonne(, nbCol); //a modifier prochainement avec les nouveaux reglages dans la classe grille  
                 }
-            }
+            
             if (actionARealiser == 2) {
                 int recupCol;
                 int recupLigne;
