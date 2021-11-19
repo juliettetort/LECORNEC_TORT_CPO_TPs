@@ -29,8 +29,8 @@ public class Cellule {
                 }
         }
      
-    public String recupererJeton() {
-        //a faire + tard 
+    public Jeton recupererJeton() {
+        return jetonCourant;
     }
     public boolean supprimerjeton (){
         if (jetonCourant==null) {
@@ -61,7 +61,7 @@ public class Cellule {
         }
         }
     public boolean presenceTrouNoir() {
-        if (jetonCourant==trounoir){       
+        if (trouNoir==true){       
             return true;
         }
         else {
@@ -69,7 +69,7 @@ public class Cellule {
         }
     }
     public boolean presenceDesintegrateur() {
-        if (jetonCourant==desintegrateur) {
+        if (desintegrateur==true) {
             return true;
         }
         else {
@@ -85,7 +85,7 @@ public class Cellule {
                     }
         }
     public boolean recupererDesintegrateur() {
-        if (jetonCourant==desintegrateur) {
+        if (desintegrateur==true) {
             //supprimer le jeton de la cellule en question
             return true;
         }
@@ -95,8 +95,12 @@ public class Cellule {
     }
     
     public boolean activerTrouNoir() {
-        if (jetonCourant==trounoir) {
+        if (trouNoir==true) {
             // engloutir le jeton
+            jetonCourant=null;
+            trouNoir=false;
+            
+            
             return true;
         }
         else {
@@ -104,13 +108,7 @@ public class Cellule {
         }
         }
 
-    void supprimerJeton() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    void supprimerJeton() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     }
     
 
