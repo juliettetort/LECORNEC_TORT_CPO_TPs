@@ -23,7 +23,7 @@ public class Grille {
         }       
         }
         }
-   public boolean ajouterJetonDansColonne(Joueur JdansC, int colonne){
+   public boolean ajouterJetonDansColonne(Jeton JdansC, int colonne){
     for (int i=0; i<6; i++){
         if (CellulesJeu[5-i][colonne].jetonCourant == null){
             Jeton jeton = null;
@@ -39,12 +39,12 @@ public class Grille {
             if (CellulesJeu[5-i][colonne].presenceDesintegrateur()){
                 CellulesJeu[5-i][colonne].recupererDesintegrateur();
                 JdansC.nombreDesintegrateurs+=1;
-                System.out.println("Vous avez gagné un désintégrateur.");
+                System.out.println("Vous avez gagné un désintégrateur, vous en avez donc "+JdansC.nombreDesintegrateurs);
             }
             
             if (CellulesJeu[5-1][colonne].presenceTrouNoir()){
                 CellulesJeu[5-i][colonne].activerTrouNoir();
-                System.out.println("Vous avez été aspiré par un trou noir!");
+                System.out.println("Vous avez été pris par un trou noir!");
             }
             return true;
             

@@ -15,6 +15,7 @@ public class Jeton {
 String Couleur;
     Jeton[] ListeJetons;
     int nombreJetonsRestants;
+    int nombreDesintegrateurs;
     int nombreJetonsRestant;
 public  Jeton (String color) {
     Couleur=color;
