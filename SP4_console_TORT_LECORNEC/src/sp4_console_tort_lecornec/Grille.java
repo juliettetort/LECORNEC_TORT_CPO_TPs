@@ -8,6 +8,7 @@ package sp4_console_tort_lecornec;
  *
  * @author 33782
  */
+
 public class Grille {
     Cellule CellulesJeu [] [];
     
@@ -23,16 +24,32 @@ public class Grille {
         }
         }
      public boolean ajouterJetonDansColonne (Jeton JDansC, int colonne){
-        Object jetonCourant = null;
-         //ajt le jeton dans la colonne 
-         if (jetonCourant ==null) {
-             return true;
-         }
-         else {
-             return false;
-             
-         }
-         }
+            boolean b=false;
+    for (int i=0;i<6;i++){
+        if(colonneRemplie(colonne)==false){
+            if (CellulesJeu[5-i][colonne].presenceDesintegrateur()==true){
+                CellulesJeu[5-i][colonne].recupererDesintegrateur();
+                JDansC.nombreDesintegrateurs+=1;
+                CellulesJeu[5-i][colonne].affecterJeton(JDansC.ListeJetons[JDansC.nombreJetonsRestant-1]);
+                return true;
+            }
+            else if (CellulesJeu[5-i][colonne].presenceTrouNoir()==true){
+                CellulesJeu[5-i][colonne].activerTrouNoir();
+                CellulesJeu[5-i][colonne].supprimerjeton();
+                System.out.println("Votre jeton a été absorbé par le Trou Noir...");
+                return true;
+            }
+            else if (CellulesJeu[5-i][colonne].jetonCourant==null){
+                CellulesJeu[5-i][colonne].affecterJeton(JDansC.ListeJetons[JDansC.nombreJetonsRestants-1]);
+                return true;
+            }
+            b= true;
+        }else{
+            b= false;            
+        }
+    }
+    return b;
+}
      
      public boolean etreRempli(){
            boolean pleine = true;
@@ -63,30 +80,28 @@ public class Grille {
      public void afficherGrilleSurConsole (){
          for (int i=0; i<6; i++){
              for( int j=0; j<7; j++){
-                 if (CellulesJeu[i][j].jetonCourant.lireCouleurDuJeton()== "rouge"){
-                     System.out.println( "[R]");
+                 if ("rouge".equals(CellulesJeu[i][j].jetonCourant.lireCouleurDuJeton())){
+                     System.out.print( "[R]");
                  }
-                 if(CellulesJeu[i][j].jetonCourant.lireCouleurDuJeton()== "Jaune"){
-                     System.out.println ( "[J]");
+                 if("Jaune".equals(CellulesJeu[i][j].jetonCourant.lireCouleurDuJeton())){
+                     System.out.print( "[J]");
                  }
-                 if (CellulesJeu[i][j].jetonCourant.lireCouleurDuJeton()== "vide"){
-                    System.out.println ( "[/]");
+                 if ("vide".equals(CellulesJeu[i][j].jetonCourant.lireCouleurDuJeton())){
+                    System.out.print ( "[/]");
                          
                      }// à compléter TN
                  }
-                 
+                 System.out.println();
              }
          
      }
      public boolean celluleOccupee (int ligne , int colonne){
-         if (CellulesJeu [ligne][colonne] == null){
-             return false;
-         }
-         else {
-             return true;
-             // a completer
-         }
-     }
+        if (CellulesJeu[ligne][colonne].recupererJeton()==null){
+        return false;
+    }else{
+        return true;
+    }
+}
      public String lireCouleurDuJeton (int ligne , int colonne ){
       return CellulesJeu[ligne][colonne].lireCouleurDuJeton();
      }
@@ -163,6 +178,14 @@ return false;
      
             
         }
+    public boolean placerDesintegrateur (int i, int j ){
+     if (CellulesJeu [i][j].presenceDesintegrateur()==false){
+         CellulesJeu[i][j].placerDesintegrateur();
+         return true;
+     }
+     return false; 
+    }
+    
     public boolean placerTrouNoir (int i, int j) {
     if (CellulesJeu[i][j].presenceTrouNoir()==false){
         CellulesJeu[i][j].placerTrouNoir();
@@ -172,13 +195,7 @@ return false;
         
     }
     
-    public boolean placerDesintegrateur (int i, int j ){
-     if (CellulesJeu [i][j].presenceDesintegrateur()==false){
-         CellulesJeu[i][j].placerDesintegrateur();
-         return true;
-     }
-     return false; 
-    }
+    
     public boolean supprimerJeton (int ligne, int colonne){
         if(CellulesJeu[ligne][colonne].recupererJeton()!=null){
             CellulesJeu[ligne][colonne].supprimerjeton();
@@ -188,15 +205,14 @@ return false;
       return false; 
     }
     public Jeton recupererJeton (int ligne, int colonne){
-       
-        return null;
+          Jeton jetonrecup =  CellulesJeu[ligne][colonne].jetonCourant;
+    CellulesJeu[ligne][colonne].supprimerJeton();
+    return jetonrecup;
+}
+
        
     }
 
-    void ajouterJetonDansColonne(Joueur joueurCourant, int nbCol) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-}
     
 
 

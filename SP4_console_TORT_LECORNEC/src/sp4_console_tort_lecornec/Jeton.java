@@ -13,6 +13,9 @@ import java.util.Scanner;
  */
 public class Jeton {
 String Couleur;
+    Jeton[] ListeJetons;
+    int nombreJetonsRestants;
+    int nombreJetonsRestant;
 public  Jeton (String color) {
     Couleur=color;
 }
@@ -20,4 +23,8 @@ public void lireCouleur() {
     System.out.println("Le jeton est de la couleur"+ Couleur);
     
 }
+
+    String lireCouleurDuJeton() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
