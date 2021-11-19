@@ -89,7 +89,7 @@ public class Partie {
                 nbCol = sc2.nextInt()-1; //a verifier
                 while ((nbCol!=1)&&(nbCol!=2)&&(nbCol!=3)&&(nbCol!=4)&&(nbCol!=5)&&(nbCol!=6)){
                     System.out.println("Veuillez entrer un numéro de colonne compris entre 1 et 6");
-                    nbCol=sc2.nextInt()-1;
+                    nbCol=sc2.nextInt()-1;  //on est maintenant sur que la colonne rentrée est valide 
                 }
                 //il faut aller recuperer le jeton
                 //jetonJoue=jetonCourant.ListeJetons[jetonCourant.nombreJetonsRestants-1];
@@ -97,10 +97,12 @@ public class Partie {
                 //jetonCourant.nombreJetonsRestants;
                 while (grilleJeu.colonneRemplie(nbCol)==true){
                     System.out.println("Cette colonne est remplie, selectionne-en une autre.");
-                    nbCol=sc2.nextInt()-1;
+                    nbCol=sc2.nextInt()-1; //on est sur que la colonne choisie n'est pas pleine 
                 }
-               
-                grilleJeu.ajouterJetonDansColonne(joueurCourant, nbCol);//pb avec joueurCourant
+                Jeton jetonPlace=joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1];
+                joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1]=null;
+                joueurCourant.nombreJetonsRestants--;
+                grilleJeu.ajouterJetonDansColonne(jetonPlace, nbCol);//pb avec joueurCourant, mettre un jeton en entree
                 joueurCourant.nombreJetonsRestants=joueurCourant.nombreJetonsRestants-1;
                 
                 
