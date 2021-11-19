@@ -33,12 +33,13 @@ public class Cellule {
         return jetonCourant;
     }
     public boolean supprimerjeton (){
-        if (jetonCourant==null) {
-            return false;
+        if (jetonCourant != null){
+              jetonCourant=null;
+               return true;
         }
         else {
-            return true;
-        }
+            return false;
+        } 
         }
     public boolean placerTrouNoir() {
         // chosir une case ou le trou noir va etre placé et le placer a cet endroit quoi qu il arrive , cette case prend une valeur "trounoir" 
