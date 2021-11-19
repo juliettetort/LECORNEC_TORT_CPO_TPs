@@ -16,15 +16,15 @@ public class SP4_console_TORT_LECORNEC {
     public static void main(String[] args) {
 //bonjour juliette
 //tirage aleatoire avec start
-String joueurCourant;
-String joueur1;
-String joueur2;
-if (start==0) {
-    joueurCourant=jaune;//a ce moment la, avec la methode attribuer les couleurs, le joueur jaune commence ou le joueur rouge commence 
-}
-else if (start==1){
-joueurCourant=rouge;  //maintenant on a jouuer courant qui commence a jouer, le jaune ou le rouge
-}
+Jeton jeton1 =new Jeton("rouge");
+System.out.println(jeton1.lireCouleurDuJeton());
+Cellule cellule1= new Cellule();
+System.out.println(cellule1.lireCouleurDuJeton());  //affiche vide
+cellule1.affecterJeton(jeton1);
+System.out.println(cellule1.lireCouleurDuJeton()); //affiche rouge
+Grille guits = new Grille();
+guits.afficherGrilleSurConsole();
+guits.ajouterJetonDansColonne(jeton1, 5);
+guits.afficherGrilleSurConsole();
     }
-    
 }
