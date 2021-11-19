@@ -103,6 +103,14 @@ public class Cellule {
             return false;
         }
         }
+
+    void supprimerJeton() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void supprimerJeton() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     }
     
 
