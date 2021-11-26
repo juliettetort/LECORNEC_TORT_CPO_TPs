@@ -79,8 +79,9 @@ public class Partie {
                 System.out.println("Veuillez rentrer un nombre compris entre 1 et 3");
                 actionARealiser = sc.nextInt();
             }
+            
             if (actionARealiser == 1) {
-                if (joueurCourant.ListeJetons[20] == null) { //si la 21eme case de mes jetons est vide, ca veut dire que tous ceux d'avant ont été utilisés aussi
+                if (joueurCourant.ListeJetons[0] == null) { //si la 21eme case de mes jetons est vide, ca veut dire que tous ceux d'avant ont été utilisés aussi
                     System.out.println("Partie terminée, vous n'avez plus aucun jeton");
                     break;
                 }
@@ -100,8 +101,8 @@ public class Partie {
                     System.out.println("Cette colonne est remplie, selectionne-en une autre.");
                     nbCol=sc2.nextInt()-1; //on est sur que la colonne choisie n'est pas pleine 
                 }
-                Jeton jetonPlace=joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants];//-1
-                joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants]=null; //-1
+                Jeton jetonPlace=joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1];//-1
+                joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1]=null; //-1
                 joueurCourant.nombreJetonsRestants--;
                 grilleJeu.ajouterJetonDansColonne(jetonPlace, nbCol);//pb avec joueurCourant, mettre un jeton en entree
                 joueurCourant.nombreJetonsRestants=joueurCourant.nombreJetonsRestants-1;
@@ -149,7 +150,7 @@ public class Partie {
                     joueurCourant.ajouterJeton(grilleJeu.recupererJeton(recupLigne, recupCol)); //ca marchera quand juliette aura créé recupererJeton dans grille
                     grilleJeu.tasserGrille(recupCol); 
                 }
-                break;
+                //break;
                 // augmenter de 1 le nbr de jetons du joueur correspondant
                 //mettre avec la classe grille pour supprimer le jeton en question
             }
@@ -199,7 +200,7 @@ public class Partie {
             if (joueurCourant == ListeJoueurs[1]) {
                 joueurCourant = ListeJoueurs[0];
             }
-            if (joueurCourant == ListeJoueurs[0]) {
+            else {
                 joueurCourant = ListeJoueurs[1];
                 //on fait alterner les joueurs courants
             }

@@ -29,8 +29,8 @@ public class Grille {
         
         
         
-        if (CellulesJeu[i][colonne].jetonCourant == null){
-            CellulesJeu[i][colonne].affecterJeton(JdansC);
+        if (CellulesJeu[i][colonne-1].jetonCourant == null){
+            CellulesJeu[i][colonne-1].affecterJeton(JdansC);
             return true;
                                
                 }
@@ -65,7 +65,7 @@ public class Grille {
   public boolean etreRempli(){
            boolean pleine = true;
     for (int i=0; i<6; i++){
-        if (CellulesJeu[0][i]!=null){
+        if (CellulesJeu[5][i]!=null){
             
             return true;
         }
@@ -96,7 +96,7 @@ public class Grille {
                  if ("rouge".equals(CellulesJeu[i][j].lireCouleurDuJeton())){
                      System.out.print( "[R]");
                  }
-                 else if("Jaune".equals(CellulesJeu[i][j].lireCouleurDuJeton())){
+                 else if("jaune".equals(CellulesJeu[i][j].lireCouleurDuJeton())){
                      System.out.print( "[J]");
                  }
                  else if ("vide".equals(CellulesJeu[i][j].lireCouleurDuJeton())){
@@ -104,10 +104,10 @@ public class Grille {
                                           
                   }
                  else if (CellulesJeu[i][j].presenceTrouNoir()==true ) {    
-                     System.out.print("TN");
+                     System.out.print("[T]");
                  }
                  else if (CellulesJeu[i][j].presenceDesintegrateur()==true){
-                     System.out.print("D");
+                     System.out.print("[D]");
              }
                  
              }

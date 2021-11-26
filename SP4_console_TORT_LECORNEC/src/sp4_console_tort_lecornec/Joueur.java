@@ -30,6 +30,7 @@ public class Joueur {
      
         }
         ListeJetons [i]=J;
+        nombreJetonsRestants++;
         boolean reponse = true;
         return reponse;
         
