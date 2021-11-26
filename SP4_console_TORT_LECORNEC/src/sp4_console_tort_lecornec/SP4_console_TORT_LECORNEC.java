@@ -16,15 +16,18 @@ public class SP4_console_TORT_LECORNEC {
     public static void main(String[] args) {
 //bonjour juliette
 //tirage aleatoire avec start
-Jeton jeton1 =new Jeton("rouge");
-System.out.println(jeton1.lireCouleur());
-Cellule cellule1= new Cellule();
-System.out.println(cellule1.lireCouleurDuJeton());  //affiche vide
-cellule1.affecterJeton(jeton1);
-System.out.println(cellule1.lireCouleurDuJeton()); //affiche rouge
-Grille guits = new Grille();
-guits.afficherGrilleSurConsole();
-guits.ajouterJetonDansColonne(jeton1, 5);
-guits.afficherGrilleSurConsole();
+//Jeton jeton1 =new Jeton("rouge");
+//System.out.println(jeton1.lireCouleur());
+//Cellule cellule1= new Cellule();
+//System.out.println(cellule1.lireCouleurDuJeton()+"test1");  //affiche vide +test1 pour voir si ca marche 
+//cellule1.affecterJeton(jeton1);
+//System.out.println(cellule1.lireCouleurDuJeton()); //affiche rouge
+//Grille guits = new Grille();
+//guits.afficherGrilleSurConsole();
+//guits.ajouterJetonDansColonne(jeton1, 5);
+//guits.afficherGrilleSurConsole();
+Partie laPartie=new Partie();
+laPartie.debuterPartie();
     }
+
 }

@@ -14,7 +14,7 @@ public class Cellule {
     boolean trouNoir;
     boolean desintegrateur;
 
-    public void Cellule() {
+    public  Cellule() {
     jetonCourant=null;
     trouNoir=true;
     desintegrateur=true;

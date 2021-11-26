@@ -13,15 +13,12 @@ import java.util.Scanner;
  */
 public class Jeton {
 String Couleur;
-    Jeton[] ListeJetons;
-    int nombreJetonsRestants;
-    int nombreDesintegrateurs;
-    int nombreJetonsRestant;
+    
 public  Jeton (String color) {
     Couleur=color;
 }
 public String lireCouleur() {
-    System.out.println("Le jeton est de la couleur"+ Couleur);
+    System.out.println("Le jeton est de la couleur "+ Couleur);
     return Couleur;
     
 }
