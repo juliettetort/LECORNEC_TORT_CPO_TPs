@@ -89,8 +89,8 @@ public class Partie {
                 Scanner sc2 = new Scanner(System.in);
                 
                 nbCol = sc2.nextInt(); //a verifier
-                while ((nbCol!=1)&&(nbCol!=2)&&(nbCol!=3)&&(nbCol!=4)&&(nbCol!=5)&&(nbCol!=6)){
-                    System.out.println("Veuillez entrer un numéro de colonne compris entre 1 et 6");
+                while ((nbCol!=1)&&(nbCol!=2)&&(nbCol!=3)&&(nbCol!=4)&&(nbCol!=5)&&(nbCol!=6)&&(nbCol!=7)){
+                    System.out.println("Veuillez entrer un numéro de colonne compris entre 1 et 7");
                     nbCol=sc2.nextInt();  //on est maintenant sur que la colonne rentrée est valide 
                 }
                 while (grilleJeu.colonneRemplie(nbCol)==true){
@@ -129,10 +129,10 @@ public class Partie {
                     System.out.println("veuillez recommmencer, la ligne doit etre comprise entre 1 et 6");
                     recupLigne = sc3.nextInt();
                 }
-                System.out.println("Super! maintenant, veuillez rentrer le numéro de colonne du jeton que vous voulez récupérer");
+                System.out.println("Bien enregistré ! maintenant, veuillez rentrer le numéro de colonne du jeton que vous voulez récupérer");
                 recupCol = sc3.nextInt();
                 while ((recupCol != 1) && (recupCol != 2) && (recupCol != 3) && (recupCol != 4) && (recupCol != 5) && (recupCol != 6) && (recupCol != 7)) {
-                    System.out.println("veuillez recommencer, la colonne doit etre comprise entre 1 et 7");
+                    System.out.println("Veuillez recommencer, la colonne doit etre comprise entre 1 et 7");
                     recupCol = sc3.nextInt();
                 }
 
@@ -140,10 +140,11 @@ public class Partie {
 
                     if (grilleJeu.CellulesJeu[recupLigne][recupCol].jetonCourant == null) {
                         System.out.println("vous devez utiliser ce pouvoir sur une case où il y a votre jeton, veuillez recommencer.");
+                        
                     }
 
-                    if (!grilleJeu.CellulesJeu[recupLigne][recupCol].lireCouleurDuJeton().equals(joueurCourant.Couleur)) {
-                        System.out.println("vous devez utiliser ce pouvoir sur une case où il y a votre jeton, veuillez recommencer.");
+                    else if (!grilleJeu.CellulesJeu[recupLigne][recupCol].lireCouleurDuJeton().equals(joueurCourant.Couleur)) {
+                        System.out.println("vous devez utiliser ce pouvoir sur une case où il y a votre jeton, et pas celui de l'adversaire, veuillez recommencer.");
 
                     }
                     break;
@@ -199,12 +200,16 @@ public class Partie {
             //on a traité les cas pour toutes les actions possibles
 
             //on va maintenant faire alterner les tours, cad que le joueur qui va jouer va changer 
-            if (joueurCourant == ListeJoueurs[1]) {
+            if (actionARealiser==1){
+                
+                if (joueurCourant == ListeJoueurs[1]){
                 joueurCourant = ListeJoueurs[0];
             }
+            
             else {
                 joueurCourant = ListeJoueurs[1];
                 //on fait alterner les joueurs courants
+            }
             }
             System.out.println("Bien joué, c'est au tour de " + joueurCourant.Nom);
         }
