@@ -93,14 +93,16 @@ public class Partie {
                     System.out.println("Veuillez entrer un numéro de colonne compris entre 1 et 6");
                     nbCol=sc2.nextInt();  //on est maintenant sur que la colonne rentrée est valide 
                 }
+                while (grilleJeu.colonneRemplie(nbCol)==true){
+                    System.out.println("Cette colonne est remplie, selectionne-en une autre.");
+                    nbCol=sc2.nextInt(); //on est sur que la colonne choisie n'est pas pleine 
+                }
+                
                 //il faut aller recuperer le jeton
                 //jetonJoue=jetonCourant.ListeJetons[jetonCourant.nombreJetonsRestants-1];
                 //jetonCourant.listeJetons[jetonCourant.nombreJetonsRestants-1]=null;
                 //jetonCourant.nombreJetonsRestants;
-                while (grilleJeu.colonneRemplie(nbCol)==true){
-                    System.out.println("Cette colonne est remplie, selectionne-en une autre.");
-                    nbCol=sc2.nextInt()-1; //on est sur que la colonne choisie n'est pas pleine 
-                }
+                
                 Jeton jetonPlace=joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1];//-1
                 joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1]=null; //-1
                 joueurCourant.nombreJetonsRestants--;
