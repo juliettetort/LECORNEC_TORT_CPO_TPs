@@ -187,8 +187,8 @@ return false;
     }
 }
     public boolean colonneRemplie (int colonne){
-    
-        if (CellulesJeu[5][colonne].jetonCourant!=null){ // regarde sur la premièe ligne si il y a un pion,// Si oui, retourne vrai sinon retourne faux
+        
+        if (CellulesJeu[5][colonne-1].jetonCourant!=null){ // regarde sur la premièe ligne si il y a un pion,// Si oui, retourne vrai sinon retourne faux
             return true;
         }
         else{
