@@ -12,26 +12,26 @@ public class Joueur {
     String Nom;
     String Couleur; 
     Jeton ListeJetons [] = new Jeton [21];//décrivant les jetons encore en possession du joueur
-    int nombreDesintegrateurs;
+    int nombreDesintegrateurs=3;
     int nombreJetonsRestants;
     public Joueur (String nomJ){
     Nom = nomJ ;
     }
     public void affecterCouleur(String Colorj){ 
-        Couleur = Colorj;
+        Couleur = Colorj;//on affecte une couleur (de jetons) au joueur
     }
     public boolean ajouterJeton (Jeton J ){
         int i=0;
         while (ListeJetons [i]!=null){
-            i+=1;
+            i+=1;//on ajoute les jetons du joueur dans le tableau de jetons du joueur
             if (i==20){
-                boolean reponse= false;
+                boolean reponse= false;//si le tableau de jetons est plein on retourne faux
             }
      
         }
-        ListeJetons [i]=J;
-        nombreJetonsRestants++;
-        boolean reponse = true;
+        ListeJetons [i]=J;//on met dans le tableau de jetons du joueur la caracteristique de son jeton
+        nombreJetonsRestants++;//on augmente alors de 1 son nombre de jetons 
+        boolean reponse = true;//on renvoie alors vrai, tout s est bien passé 
         return reponse;
         
         
@@ -39,7 +39,7 @@ public class Joueur {
     
 }    
 public void obtenirDesintegrateur(){
-    nombreDesintegrateurs=nombreDesintegrateurs+1;
+    nombreDesintegrateurs=nombreDesintegrateurs+1;//on augmente de 1 le nombre de desintegrateurs 
  
     
 }

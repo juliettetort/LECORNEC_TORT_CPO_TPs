@@ -15,11 +15,11 @@ public class Jeton {
 String Couleur;
     
 public  Jeton (String color) {
-    Couleur=color;
+    Couleur=color;//la couleur du jeton est sa caractéristique 
 }
 public String lireCouleur() {
     System.out.println("Le jeton est de la couleur "+ Couleur);
-    return Couleur;
+    return Couleur;//ca renvoie la couleur du jeton qu on veut
     
 }
 
