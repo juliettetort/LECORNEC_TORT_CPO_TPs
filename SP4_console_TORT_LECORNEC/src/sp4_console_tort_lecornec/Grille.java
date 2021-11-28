@@ -19,12 +19,12 @@ public class Grille {
             for (int j=0 ; j<7; j++){
                  CellulesJeu[i][j] = new Cellule(); 
                 
-               
-            
+                           
         }       
         }
         }
-   public boolean ajouterJetonDansColonne(Jeton JdansC, int colonne){
+   
+    public boolean ajouterJetonDansColonne(Jeton JdansC, int colonne){
     for (int i=0; i<6; i++){
         
         
@@ -34,11 +34,19 @@ public class Grille {
             return true;
                                
                 }
-    }
+    
         
-        return false;
-            
+        else if (CellulesJeu[i][colonne-1].presenceTrouNoir()==true){
+                CellulesJeu[i][colonne-1].activerTrouNoir();
+                System.out.println("Vous avez été pris par un trou noir!");
+                return true;
             }
+            
+        }
+    return false;
+    }
+            
+            
    
    
             //CellulesJeu[5-i][colonne].affecterJeton(jeton);
@@ -49,11 +57,9 @@ public class Grille {
                 //System.out.println("Vous avez gagné un désintégrateur, vous en avez donc "+JdansC.nombreDesintegrateurs);
             //}
             
-            //if (CellulesJeu[5-1][colonne].presenceTrouNoir()){
-               // CellulesJeu[5-i][colonne].activerTrouNoir();
-                //System.out.println("Vous avez été pris par un trou noir!");
-            //}
-            //return true;
+            
+    
+   
             
     //}
        // if (CellulesJeu[0][colonne].jetonCourant != null){
@@ -98,18 +104,18 @@ public class Grille {
                  }
                  else if("jaune".equals(CellulesJeu[i][j].lireCouleurDuJeton())){
                      System.out.print( "[J]");
+                     
                  }
-                 else if ("vide".equals(CellulesJeu[i][j].lireCouleurDuJeton())){
-                    System.out.print ( "[/]");
-                                          
-                  }
                  else if (CellulesJeu[i][j].presenceTrouNoir()==true ) {    
                      System.out.print("[T]");
                  }
+                                                  
                  else if (CellulesJeu[i][j].presenceDesintegrateur()==true){
                      System.out.print("[D]");
              }
-                 
+                else if ("vide".equals(CellulesJeu[i][j].lireCouleurDuJeton())){
+                    System.out.print ( "[/]");                                         
+                  }    
              }
              System.out.println();
          
@@ -178,11 +184,11 @@ public class Grille {
 }
 return false;
 }
-    public void tasserGrille (int jet){
+    public void tasserGrille (int colo){
           for (int i=0;i<5;i++){
-        if(CellulesJeu[5-i][jet].jetonCourant==null){
-           CellulesJeu[5-i][jet].jetonCourant=CellulesJeu[4-i][jet].jetonCourant;
-           CellulesJeu[4-i][jet].jetonCourant=null;
+        if(CellulesJeu[i][colo].jetonCourant==null){
+           CellulesJeu[i][colo].jetonCourant=CellulesJeu[i+1][colo].jetonCourant;
+           CellulesJeu[i+1][colo].jetonCourant=null;
         }
     }
 }
@@ -211,6 +217,7 @@ return false;
     public boolean placerTrouNoir (int i, int j) {
     if (CellulesJeu[i][j].presenceTrouNoir()==false){
         CellulesJeu[i][j].placerTrouNoir();
+        CellulesJeu[i][j].trouNoir = true;
         return true;
     }
     return false;
@@ -219,12 +226,16 @@ return false;
     
     
     public boolean supprimerJeton (int ligne, int colonne){
-        if(CellulesJeu[ligne][colonne].recupererJeton()!=null){
+        if(CellulesJeu[ligne][colonne].recupererJeton()==null){
             CellulesJeu[ligne][colonne].supprimerjeton();
+            
+            return false;
+        }
+        else{
+            CellulesJeu[ligne][colonne]=null;
             return true;
         }
-        
-      return false; 
+      
     }
     public Jeton recupererJeton (int ligne, int colonne){
           Jeton jetonrecup =  CellulesJeu[ligne][colonne].jetonCourant;

@@ -44,6 +44,7 @@ public class Cellule {
     public boolean placerTrouNoir() {
         // chosir une case ou le trou noir va etre placé et le placer a cet endroit quoi qu il arrive , cette case prend une valeur "trounoir" 
         if (jetonCourant==null){   // on verifie si la case choisie est vide ou pas 
+            
             return true;
         }
         else {
@@ -97,7 +98,7 @@ public class Cellule {
     
     public boolean activerTrouNoir() {
         if (trouNoir==true) {
-            // engloutir le jeton
+            jetonCourant=null;
             jetonCourant=null;
             trouNoir=false;
             

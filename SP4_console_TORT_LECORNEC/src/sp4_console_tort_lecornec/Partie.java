@@ -19,6 +19,8 @@ public class Partie {
     Grille grilleJeu = new Grille();
     int couleuraleat;
     int premierJoueur;
+    int lignealeat;
+    int colaleat;
 
     public void attribuerCouleursAuxJoueurs() {
         couleuraleat = (int) (Math.random() * 1);
@@ -45,7 +47,7 @@ public class Partie {
         attribuerCouleursAuxJoueurs();
         System.out.println(Joueur1.Nom + " joue avec les jetons " + Joueur1.Couleur + "s");
         System.out.println(Joueur2.Nom + " joue avec les jetons " + Joueur2.Couleur + "s");  //on a donc les joueurs avec leur pseudo et leur couleur de jetons
-
+        int tn = 0;// nb de trounoirs initialisé
         for (int i = 0; i < 21; i++) {
             Jeton Jeton1 = new Jeton(Joueur1.Couleur);
             Jeton Jeton2 = new Jeton(Joueur2.Couleur);
@@ -58,7 +60,21 @@ public class Partie {
         } else {
             joueurCourant = ListeJoueurs[1];
         }
-        //placer les trous noirs et les teleporteurs plus tard
+        
+        while (tn <6){ // on place les trous noirs
+            lignealeat = (int) (Math.random() * 6);
+            colaleat = (int) (Math.random() * 7);
+            
+            if (grilleJeu.CellulesJeu[lignealeat][colaleat].presenceTrouNoir()==false){
+                grilleJeu.placerTrouNoir(lignealeat, colaleat);
+                tn++;                                 
+            }
+            else{
+                tn=tn;
+            }  
+            }
+        
+        
     }
 
     public void debuterPartie() {
@@ -97,6 +113,7 @@ public class Partie {
                     System.out.println("Cette colonne est remplie, selectionne-en une autre.");
                     nbCol=sc2.nextInt(); //on est sur que la colonne choisie n'est pas pleine 
                 }
+ //               if ()// il faut que si on joue sur un trou noir, le jeton soit supprimé
                 
                 //il faut aller recuperer le jeton
                 //jetonJoue=jetonCourant.ListeJetons[jetonCourant.nombreJetonsRestants-1];
@@ -107,7 +124,8 @@ public class Partie {
                 joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1]=null; //-1
                 joueurCourant.nombreJetonsRestants--;
                 grilleJeu.ajouterJetonDansColonne(jetonPlace, nbCol);//pb avec joueurCourant, mettre un jeton en entree
-                joueurCourant.nombreJetonsRestants=joueurCourant.nombreJetonsRestants-1;
+                //joueurCourant.nombreJetonsRestants=joueurCourant.nombreJetonsRestants-1;
+                System.out.println(joueurCourant.Nom+" a encore "+joueurCourant.nombreJetonsRestants+" jetons");
                 
                 
 
@@ -136,24 +154,25 @@ public class Partie {
                     recupCol = sc3.nextInt();
                 }
 
-                while ((grilleJeu.CellulesJeu[recupLigne][recupCol].jetonCourant == null) || !grilleJeu.CellulesJeu[recupLigne][recupCol].lireCouleurDuJeton().equals(joueurCourant.Couleur)) {//mettre avec la classe grille la facon de vérifier si il ya bien un jeton DE SA couleur a la case choisie 
+                while ((grilleJeu.CellulesJeu[recupLigne-1][recupCol-1].jetonCourant == null) || !grilleJeu.CellulesJeu[recupLigne-1][recupCol-1].lireCouleurDuJeton().equals(joueurCourant.Couleur)) {//mettre avec la classe grille la facon de vérifier si il ya bien un jeton DE SA couleur a la case choisie 
 
-                    if (grilleJeu.CellulesJeu[recupLigne][recupCol].jetonCourant == null) {
+                    //if (grilleJeu.CellulesJeu[recupLigne][recupCol].jetonCourant == null) {
                         System.out.println("vous devez utiliser ce pouvoir sur une case où il y a votre jeton, veuillez recommencer.");
                         
-                    }
+                    //}
 
-                    else if (!grilleJeu.CellulesJeu[recupLigne][recupCol].lireCouleurDuJeton().equals(joueurCourant.Couleur)) {
-                        System.out.println("vous devez utiliser ce pouvoir sur une case où il y a votre jeton, et pas celui de l'adversaire, veuillez recommencer.");
+                    //else if (!grilleJeu.CellulesJeu[recupLigne][recupCol].lireCouleurDuJeton().equals(joueurCourant.Couleur)) {
+                       // System.out.println("vous devez utiliser ce pouvoir sur une case où il y a votre jeton, et pas celui de l'adversaire, veuillez recommencer.");
 
-                    }
+                    //}
                     break;
                 }
-                if ((grilleJeu.CellulesJeu[recupLigne][recupCol].lireCouleurDuJeton().equals(joueurCourant.Couleur)) && (grilleJeu.CellulesJeu[recupLigne][recupCol].jetonCourant != null)) {
-                    joueurCourant.ajouterJeton(grilleJeu.recupererJeton(recupLigne, recupCol)); //ca marchera quand juliette aura créé recupererJeton dans grille
-                    grilleJeu.tasserGrille(recupCol); 
+                if ((grilleJeu.CellulesJeu[recupLigne-1][recupCol-1].lireCouleurDuJeton().equals(joueurCourant.Couleur)) && (grilleJeu.CellulesJeu[recupLigne-1][recupCol-1].jetonCourant != null)) {
+                    joueurCourant.ajouterJeton(grilleJeu.recupererJeton(recupLigne-1, recupCol-1)); //ca marchera quand juliette aura créé recupererJeton dans grille
+                    grilleJeu.tasserGrille(recupCol-1); //la colonne sera remise comme il faut, c est a dire tassée
                 }
                 //break;
+                
                 // augmenter de 1 le nbr de jetons du joueur correspondant
                 //mettre avec la classe grille pour supprimer le jeton en question
             }
