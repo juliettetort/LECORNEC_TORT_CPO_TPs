@@ -28,19 +28,20 @@ public class Grille {
     for (int i=0; i<6; i++){
         
         
-        
-        if (CellulesJeu[i][colonne-1].jetonCourant == null){
+        if (CellulesJeu[i][colonne-1].presenceTrouNoir()==true){
+                CellulesJeu[i][colonne-1].activerTrouNoir();
+                System.out.println("Vous avez été pris par un trou noir!");
+                CellulesJeu[i][colonne-1].supprimerjeton();
+                return true;
+            }
+        else if (CellulesJeu[i][colonne-1].jetonCourant == null){
             CellulesJeu[i][colonne-1].affecterJeton(JdansC);
             return true;
                                
                 }
     
         
-        else if (CellulesJeu[i][colonne-1].presenceTrouNoir()==true){
-                CellulesJeu[i][colonne-1].activerTrouNoir();
-                System.out.println("Vous avez été pris par un trou noir!");
-                return true;
-            }
+        
             
         }
     return false;
