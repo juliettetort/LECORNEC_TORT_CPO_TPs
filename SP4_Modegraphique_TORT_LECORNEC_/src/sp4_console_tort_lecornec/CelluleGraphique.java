@@ -29,28 +29,8 @@ public class CelluleGraphique extends JButton{
    
    public void paintComponent(Graphics G){
        super.paintComponent(G);
-       if (celluleAssociee.presenceTrouNoir()== true){
-       setIcon(img_trouNoir);
-      }
-       else if (celluleAssociee.presenceDesintegrateur () ==false){
-       setIcon(img_desint);
-   }
-       else {
-           String couleur_jeton = celluleAssociee.lireCouleurDuJeton();
-           switch (couleur_jeton){
-               case "vide":
-                   setIcon(img_vide);
-                   break;
-               case "rouge" :
-                   setIcon(img_jetonRouge);
-                   break;
-               case "jaune" :
-                   setIcon(img_jetonJaune);
-                   break;
-           }
-       }
-}
-}
+      setIcon (img_vide);
+   }}
     
        
 
