@@ -77,12 +77,12 @@ public class grille {
          }
      }
      
-     public boolean etreGagnantePourJoueur (){
-        int Compteur = 0;
+     public boolean etreGagnantePourJoueur (int compteur){
+        
     for (int i = 0; i<12; i++){//on fait varier les lignes
         for (int j = 0; j<4; j++){//on fait varier les colonnes
       
-        if ( Compteur == 4 ){
+        if ( compteur == 4 ){
             System.out.println("Vous avez gagné !!!");
             
         
