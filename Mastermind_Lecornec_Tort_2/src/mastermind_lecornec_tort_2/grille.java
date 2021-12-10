@@ -33,9 +33,9 @@ public class grille {
             }
         }
      }
-     public void afficherGrilleSurConsole (){//on presente la grille du SP4 pour que ce soit comprehensible pour le joueur
-         for (int i=0; i<6; i++){
-             for( int j=0; j<7; j++){
+     public void afficherGrilleSurConsole (){//on presente la grille du mastermind pour que ce soit comprehensible pour le joueur
+         for (int i=0; i<12; i++){
+             for( int j=0; j<4; j++){
                  if ("rouge".equals(CellulesJeu[i][j].lireCouleurDuJeton())){
                      System.out.print( "[R]");
                  }
@@ -77,9 +77,26 @@ public class grille {
          }
      }
      
-     
-
+     public boolean etreGagnantePourJoueur (){
+        int Compteur = 0;
+    for (int i = 0; i<12; i++){//on fait varier les lignes
+        for (int j = 0; j<4; j++){//on fait varier les colonnes
+      
+        if ( Compteur == 4 ){
+            System.out.println("Vous avez gagné !!!");
+            
+        
+            }
+     }
+     }
+        return false;
+     }
 }
+   
+
+
+
+
 
         
         

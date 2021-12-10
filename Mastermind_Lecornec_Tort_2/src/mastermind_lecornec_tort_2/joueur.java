@@ -9,11 +9,10 @@ package mastermind_lecornec_tort_2;
  * @author 33782
  */
 public class joueur {
-    
-    public class Joueur {
     String Nom;
     String Couleur; 
     jetons ListeJetons [] = new jetons [48];
-    
-}
+    public joueur (String nomJ){
+    Nom = nomJ ;
+    }
 }

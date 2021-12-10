@@ -10,7 +10,7 @@ package mastermind_lecornec_tort_2;
  */
 public class jetons {
 String Couleur;
-    
+
 
 public  jetons (String color) {
     Couleur=color;//la couleur du jeton est sa caractéristique 
