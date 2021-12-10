@@ -11,15 +11,17 @@ package mastermind_lecornec_tort_2;
  */
 import java.util.Random;
 import java.util.Scanner;
-public class partie() {
+public class partie  {
+    int couleuraleat;
+    grille grilleJeu=new grille();
     
     public void initialiserPartie() {
-        int couleuraleat;
+        int [] combiCachee= new int[4];
         Cellule combiCachee[][] = new Cellule [0] [3];
-        grille.viderGrille();  // on vide la grille pour commencer
+        grilleJeu.viderGrille();  // on vide la grille pour commencer
         Scanner sc = new Scanner(System.in);
         System.out.println("Votre Pseudo: ");
-        Joueur joueur = new Joueur(sc.nextLine());//le joeuur 1 a alors son nom
+        joueur joueur = new joueur(sc.nextLine());//le joeuur 1 a alors son nom
         for (int i = 0; i < 4; i++) {// pour placer les 4 pions de couleur 
         couleuraleat = (int) (Math.random() * 7);//on tire aléatoirement parmis 8 couleurs
         
@@ -49,18 +51,19 @@ public class partie() {
         }//on a alors les 4 cases cachées colorées
         
         
-        }    
+        }
+        combiCache
 }
     
-    public void debuterPartie{
+    public void debuterPartie (){
     
     initialiserPartie();
     int nbcol=1;
     int coupParTour=1;
     Scanner sc = new Scanner(System.in);
-    while ((grille.etreGagnantePourJoueur(joueur) == false){//tant que le joueur n'a pas gagné on joue
+    while ((grilleJeu.etreGagnantePourJoueur() == false)){//tant que le joueur n'a pas gagné on joue
         while (coupParTour<5){
-        grille.afficherGrilleSurConsole(); // pour chaque tour, on pourra voir s'afficher notre grille de jeu
+        grilleJeu.afficherGrilleSurConsole(); // pour chaque tour, on pourra voir s'afficher notre grille de jeu
         System.out.println("Quelle couleur voulez vous jouer dans la colonne n°"+nbcol+" ?");
         System.out.println("si vous voulez la couleur rouge, écrivez 1");
         System.out.println("si vous voulez la couleur vert, écrivez 2");
