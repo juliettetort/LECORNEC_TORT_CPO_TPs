@@ -18,4 +18,14 @@ class Cellule {
             return Jetons.Couleur;//renvoie la couleur du jeton si il y a bien un jeton dans la case 
                     }
         }
+    
+      public boolean affecterJeton(jetons jeton1) {
+        if (Jetons ==null) {
+            Jetons=jeton1;//le jeton1 va donc devenir celui qui va jouer pour un tour
+            return true;
+        }
+        else {
+                return false;
+                }
+        }
 }

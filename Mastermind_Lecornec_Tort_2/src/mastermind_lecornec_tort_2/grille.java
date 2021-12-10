@@ -91,6 +91,22 @@ public class grille {
      }
         return false;
      }
+       public boolean ajouterJetonDansColonne(jetons JdansC, int colonne){//lorsque le joueur veut ajouter n jeton:
+    for (int i=0; i<12; i++){
+        
+            if (CellulesJeu[i][colonne-1].Jetons == null){//on se met dans le cas ou il n'y a rien dans la cellule
+            CellulesJeu[i][colonne-1].affecterJeton(JdansC);
+            return true;//alors on peut tranquillement ajouter le jeton dans la cellule
+                               
+                }
+    
+        
+        
+            
+        }
+    return false;
+    }
+      
 }
    
 
