@@ -15,13 +15,13 @@ public class partie  {
     int couleuraleat;
     grille grilleJeu=new grille();
     
-    public void initialiserPartie() {
-        int [] combiCachee= new int[4];
-        Cellule combiCachee[][] = new Cellule [0] [3];
+    public String[][] initialiserPartie() {
+        String [][] combiCachee= new String[4][1];
+        //Cellule combiCachee[][] = new Cellule [0][3];
         grilleJeu.viderGrille();  // on vide la grille pour commencer
         Scanner sc = new Scanner(System.in);
         System.out.println("Votre Pseudo: ");
-        joueur joueur = new joueur(sc.nextLine());//le joeuur 1 a alors son nom
+        joueur joueur = new joueur(sc.nextLine());//le joueur 1 a alors son nom
         for (int i = 0; i < 4; i++) {// pour placer les 4 pions de couleur 
         couleuraleat = (int) (Math.random() * 7);//on tire aléatoirement parmis 8 couleurs
         
@@ -52,15 +52,16 @@ public class partie  {
         
         
         }
-        combiCache
+        return combiCachee;//on retourne la combinaison des cases cahees 
 }
     
     public void debuterPartie (){
-    
+    //String combiCachee[]=new String [4];
     initialiserPartie();
     int nbcol=1;
     int coupParTour=1;
     Scanner sc = new Scanner(System.in);
+    
     while ((grilleJeu.etreGagnantePourJoueur() == false)){//tant que le joueur n'a pas gagné on joue
         while (coupParTour<5){
         grilleJeu.afficherGrilleSurConsole(); // pour chaque tour, on pourra voir s'afficher notre grille de jeu
@@ -80,12 +81,13 @@ public class partie  {
         }
         
         
-        grille.ajouterJetonDansColonne(jetons, nbcol-1);//on ajoute alors le jeton qui correspond dans la colonne qui correspond 
+        grilleJeu.ajouterJetonDansColonne(jetons.Couleur, nbcol-1);//on ajoute alors le jeton qui correspond dans la colonne qui correspond 
         coupParTour=coupParTour+1;
         nbcol=nbcol+1;
         
         
     }
+        comparer(combiCachee[][],grilleJeu[][]);
 }
     
     

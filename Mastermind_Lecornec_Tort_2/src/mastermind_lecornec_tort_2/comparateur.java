@@ -12,13 +12,13 @@ package mastermind_lecornec_tort_2;
 public class comparateur {
     
     
-    public int [] comparer(combiCachee, combiJoueur) {
+    public int [] comparer(String[][] combiCachee, String [][] combiJoueur) {
         //for (int i=0; i<7; i++){
         int bonneCouleur=0;
         int bienPlace=0;
         int [] resultat= new int[1];
-        boolean [] checkJoueur= new boolean[3];
-        boolean [] checkCachee= new boolean[3];
+        boolean [] checkJoueur= new boolean[4];
+        boolean [] checkCachee= new boolean[4];
         for (int i=0; i<4; i++){
             if (combiCachee[i]==combiJoueur[i]){
                 bienPlace=bienPlace+1;
