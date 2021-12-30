@@ -52,7 +52,7 @@ public class partie  {
         
         
         }
-        return combiCachee;//on retourne la combinaison des cases cahees 
+        return combiCachee;//on retourne la combinaison des cases cachees 
 }
     
     public void debuterPartie (){
@@ -83,14 +83,19 @@ public class partie  {
         
         grilleJeu.ajouterJetonDansColonne(jetons.Couleur, nbcol-1);//on ajoute alors le jeton qui correspond dans la colonne qui correspond 
         coupParTour=coupParTour+1;
-        nbcol=nbcol+1;
+        nbcol=nbcol+1;//on incrémente pour faire varier les cases de jeu
         
         
     }
-        comparer(combiCachee[][],grilleJeu[][]);
+        
+        comparer(combiCachee,grilleJeu);
+        System.out.println("il y a "+resultat[1]+" jetons de la bonne couleur");
+        System.out.println("parmis lesquels, "+resultat[0]+" sont bien placés"); //on donne au joueur les infos sur son coup
+      
+       
+    
+    
+    
 }
-    
-    
-    
 }
 }

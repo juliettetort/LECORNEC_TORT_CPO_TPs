@@ -77,18 +77,19 @@ public class grille {
          }
      }
      
-     public boolean etreGagnantePourJoueur (int compteur){
+     public boolean etreGagnantePourJoueur (grille combiCachee, grille grilleJeu){
         
-    for (int i = 0; i<12; i++){//on fait varier les lignes
-        for (int j = 0; j<4; j++){//on fait varier les colonnes
+    //for (int i = 0; i<12; i++){//on fait varier les lignes
+        //for (int j = 0; j<4; j++){//on fait varier les colonnes
+        comparer(combiCachee,grilleJeu);
       
-        if ( compteur == 4 ){
+        if ( comparateur.resultat[0] == 4 ){
             System.out.println("Vous avez gagné !!!");
             
         
             }
-     }
-     }
+     //}
+     //}
         return false;
      }
        public boolean ajouterJetonDansColonne(jetons JdansC, int colonne){//lorsque le joueur veut ajouter n jeton:
