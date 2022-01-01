@@ -62,7 +62,7 @@ public class partie  {
     int coupParTour=1;
     Scanner sc = new Scanner(System.in);
     
-    while ((grilleJeu.etreGagnantePourJoueur() == false)){//tant que le joueur n'a pas gagné on joue
+    while ((etreGagnantePourJoueur(grilleJeu,combiCachee) == false)){//tant que le joueur n'a pas gagné on joue
         while (coupParTour<5){
         grilleJeu.afficherGrilleSurConsole(); // pour chaque tour, on pourra voir s'afficher notre grille de jeu
         System.out.println("Quelle couleur voulez vous jouer dans la colonne n°"+nbcol+" ?");
@@ -87,8 +87,7 @@ public class partie  {
         
         
     }
-        
-        comparer(combiCachee,grilleJeu);
+        grilleJeu.comparer(combiCachee,grilleJeu);
         System.out.println("il y a "+resultat[1]+" jetons de la bonne couleur");
         System.out.println("parmis lesquels, "+resultat[0]+" sont bien placés"); //on donne au joueur les infos sur son coup
       

@@ -81,11 +81,11 @@ public class grille {
         
     //for (int i = 0; i<12; i++){//on fait varier les lignes
         //for (int j = 0; j<4; j++){//on fait varier les colonnes
-        comparer(combiCachee,grilleJeu);
+        grilleJeu.comparer(combiCachee,grilleJeu);
       
-        if ( comparateur.resultat[0] == 4 ){
+        if (grilleJeu.resultat[0] == 4 ){
             System.out.println("Vous avez gagné !!!");
-            
+            return true;
         
             }
      //}
