@@ -64,7 +64,8 @@ public class partie  {
     int coupParTour=1;//on initialise des variables permettant de faire fonctionner les tours et de les enchaîner
     Scanner sc = new Scanner(System.in);
     int ligne=0;
-    while ((grilleJeu.etreGagnantePourJoueur(grilleJeu,combiATrouver,ligne) == false)){//tant que le joueur n'a pas gagné on joue
+    grille gagnant=new grille();
+    while ((gagnant.etreGagnantePourJoueur(grilleJeu,combiATrouver,ligne) == false)){//tant que le joueur n'a pas gagné on joue
         while (coupParTour<5){//le joueur doit poser 4 pions par tours
         //grilleJeu.afficherGrilleSurConsole(); // pour chaque tour, on pourra voir s'afficher notre grille de jeu
         System.out.println("Quelle couleur voulez vous jouer dans la colonne n°"+nbcol+" ?");
@@ -82,15 +83,17 @@ public class partie  {
                 actionARealiser = sc.nextInt();//on fait choisir au joueur une couleur
         }
         
-        
-        grilleJeu.ajouterJetonDansColonne(jetons.Couleur, nbcol-1);//on ajoute alors le jeton qui correspond dans la colonne qui correspond 
+        grille coup = new grille();
+        jetons clr = new jetons(actionARealiser);
+        coup.ajouterJetonDansColonne(clr, nbcol-1);//on ajoute alors le jeton qui correspond dans la colonne qui correspond 
         coupParTour=coupParTour+1;//il a donc placé un pion, donc il a utilisé un coup
         nbcol=nbcol+1;//on incrémente pour faire varier les cases de jeu
         
         
     }
         int [] res= new int [2];
-        res=comparateur.comparer(combiATrouver,grilleJeu);//on récupère les résultats pour afficher des messages explicatifs sur chaque coup
+        comparateur compar= new comparateur();
+        res=compar.comparer(combiATrouver,grilleJeu,ligne);//on récupère les résultats pour afficher des messages explicatifs sur chaque coup
         int memeClr=res[1];
         int memePlc=res[0];
         System.out.println("il y a "+memeClr+" jetons de la bonne couleur");

@@ -82,10 +82,10 @@ public class grille {
     //for (int i = 0; i<12; i++){//on fait varier les lignes
         //for (int j = 0; j<4; j++){//on fait varier les colonnes
         int [] score= new int [2];
-        score=comparateur.comparer(grilleJeu,combiCachee,ligne);//on compare la combi proposée par le joueur à celle qui est cachée, et si le nombre de jetons bien placés est de 4 (donc TOUS), alors la partie est terminée, le joueur a gagné
-      
+        comparateur comp = new comparateur();
+        score = comp.comparer(grilleJeu,combiCachee,ligne);//on compare la combi proposée par le joueur à celle qui est cachée, et si le nombre de jetons bien placés est de 4 (donc TOUS), alors la partie est terminée, le joueur a gagné        
         if (score[0] == 4 ){
-            System.out.println("Vous avez gagné !!!");//expliqué a la ligne 85
+            System.out.println("Vous avez gagné !!!");//expliqué a la ligne 86
             return true;//on retourne true si la partie est terminée
         
             }

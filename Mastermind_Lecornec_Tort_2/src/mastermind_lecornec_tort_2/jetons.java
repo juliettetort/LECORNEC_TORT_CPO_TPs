@@ -12,8 +12,32 @@ public class jetons {
 String Couleur;
 
 
-public  jetons (String color) {
-    Couleur=color;//la couleur du jeton est sa caractéristique 
+public  jetons (int color) {
+    if (color==1){
+        Couleur="rouge";
+    }
+    if (color==2){
+        Couleur="vert";
+    }
+    if (color==3){
+        Couleur="orange";
+    }
+    if (color==4){
+        Couleur="jaune";
+    }
+    if (color==5){
+        Couleur="bleu";
+    }
+    if (color==6){
+        Couleur="noir";
+    }
+    if (color==7){
+        Couleur="blanc";
+    }
+    if (color==8){
+        Couleur="rose";
+    }
+    //en fonction du chiffre tapé par le joueur on afecte une couleur au jeton joué
 }
 public String lireCouleur() {
     System.out.println("Le jeton est de la couleur "+ Couleur);
