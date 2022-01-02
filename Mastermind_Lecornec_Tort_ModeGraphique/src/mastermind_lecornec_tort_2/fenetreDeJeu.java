@@ -17,6 +17,7 @@ String[][] grilleJeu=new String[12][4];
     public fenetreDeJeu() {
         initComponents();
         panneaureglejeu.setVisible(false);
+        panneauchoixcouleurs.setVisible(false);
         for (int i=4; i>=0; i--){
             for (int j=12; j<0; j++){
             CelluleGraphique CellGraph = new CelluleGraphique();
@@ -44,8 +45,7 @@ String[][] grilleJeu=new String[12][4];
         panneaureglejeu = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        Panneau_combinaisoncachée = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        panneauchoixcouleurs = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
@@ -62,7 +62,7 @@ String[][] grilleJeu=new String[12][4];
 
         panneaugrille.setBackground(new java.awt.Color(255, 255, 255));
         panneaugrille.setLayout(new java.awt.GridLayout(12, 4));
-        getContentPane().add(panneaugrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 20, 380, 500));
+        getContentPane().add(panneaugrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 380, 590));
 
         Panneauinfojeu.setBackground(new java.awt.Color(0, 153, 153));
 
@@ -123,7 +123,7 @@ String[][] grilleJeu=new String[12][4];
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Règle du jeu: ");
+        jTextArea1.setText("Règle du jeu: Essaye de retrouver la combinaison cachée par le mastermind, \nvous avez 12 coups et des indices à chaque tour de jeu\nBonne chance !");
         jScrollPane1.setViewportView(jTextArea1);
 
         javax.swing.GroupLayout panneaureglejeuLayout = new javax.swing.GroupLayout(panneaureglejeu);
@@ -131,36 +131,21 @@ String[][] grilleJeu=new String[12][4];
         panneaureglejeuLayout.setHorizontalGroup(
             panneaureglejeuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panneaureglejeuLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         panneaureglejeuLayout.setVerticalGroup(
             panneaureglejeuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panneaureglejeuLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         getContentPane().add(panneaureglejeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 420, 140));
 
-        Panneau_combinaisoncachée.setBackground(new java.awt.Color(255, 255, 255));
-
-        javax.swing.GroupLayout Panneau_combinaisoncachéeLayout = new javax.swing.GroupLayout(Panneau_combinaisoncachée);
-        Panneau_combinaisoncachée.setLayout(Panneau_combinaisoncachéeLayout);
-        Panneau_combinaisoncachéeLayout.setHorizontalGroup(
-            Panneau_combinaisoncachéeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
-        );
-        Panneau_combinaisoncachéeLayout.setVerticalGroup(
-            Panneau_combinaisoncachéeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(Panneau_combinaisoncachée, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 380, 80));
-
-        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+        panneauchoixcouleurs.setBackground(new java.awt.Color(0, 153, 153));
 
         jTextArea2.setBackground(new java.awt.Color(0, 153, 153));
         jTextArea2.setColumns(20);
@@ -170,6 +155,11 @@ String[][] grilleJeu=new String[12][4];
 
         jButton2.setBackground(new java.awt.Color(255, 51, 51));
         jButton2.setText("Rouge");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setBackground(new java.awt.Color(255, 255, 0));
         jButton3.setText("Jaune");
@@ -197,60 +187,60 @@ String[][] grilleJeu=new String[12][4];
         jButton11.setBackground(new java.awt.Color(0, 204, 102));
         jButton11.setText("Vert");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panneauchoixcouleursLayout = new javax.swing.GroupLayout(panneauchoixcouleurs);
+        panneauchoixcouleurs.setLayout(panneauchoixcouleursLayout);
+        panneauchoixcouleursLayout.setHorizontalGroup(
+            panneauchoixcouleursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panneauchoixcouleursLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(25, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(panneauchoixcouleursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panneauchoixcouleursLayout.createSequentialGroup()
                         .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(76, 76, 76)
                         .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panneauchoixcouleursLayout.createSequentialGroup()
+                        .addGroup(panneauchoixcouleursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(76, 76, 76)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(panneauchoixcouleursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panneauchoixcouleursLayout.createSequentialGroup()
                                 .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(panneauchoixcouleursLayout.createSequentialGroup()
                                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(46, 46, 46))))
+            .addGroup(panneauchoixcouleursLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 25, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        panneauchoixcouleursLayout.setVerticalGroup(
+            panneauchoixcouleursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panneauchoixcouleursLayout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panneauchoixcouleursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton5))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panneauchoixcouleursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton4)
                     .addComponent(jButton11)
                     .addComponent(jButton10))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panneauchoixcouleursLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton8)
                     .addComponent(jButton9))
                 .addContainerGap(98, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 410, 240));
+        getContentPane().add(panneauchoixcouleurs, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 410, 240));
 
         setBounds(0, 0, 941, 1483);
     }// </editor-fold>//GEN-END:initComponents
@@ -270,13 +260,17 @@ String[][] grilleJeu=new String[12][4];
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         panneaureglejeu.setVisible(true);
-       
+        panneauchoixcouleurs.setVisible(true);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -314,7 +308,6 @@ String[][] grilleJeu=new String[12][4];
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Panneau_combinaisoncachée;
     private javax.swing.JPanel Panneauinfojeu;
     private javax.swing.JButton btn_col1;
     private javax.swing.JButton btn_col2;
@@ -329,11 +322,11 @@ String[][] grilleJeu=new String[12][4];
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JPanel panneauchoixcouleurs;
     private javax.swing.JPanel panneaugrille;
     private javax.swing.JPanel panneaureglejeu;
     // End of variables declaration//GEN-END:variables
