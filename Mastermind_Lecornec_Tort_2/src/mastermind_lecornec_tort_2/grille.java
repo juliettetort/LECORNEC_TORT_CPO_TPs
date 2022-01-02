@@ -9,7 +9,7 @@ package mastermind_lecornec_tort_2;
  * @author 33782
  */
 public class grille {
-    Cellule[][] CellulesJeu = new Cellule [12] [4];
+    Cellule[][] CellulesJeu = new Cellule [12] [4];//notre mastermind est composé de 12 lignes et 4 colonnes 
      
     public grille (){
      for (int i=0; i<12; i++){
@@ -77,20 +77,21 @@ public class grille {
          }
      }
      
-     public boolean etreGagnantePourJoueur (grille combiCachee, grille grilleJeu){
+     public boolean etreGagnantePourJoueur (String[][] grilleJeu , String[][]combiCachee, int ligne){
         
     //for (int i = 0; i<12; i++){//on fait varier les lignes
         //for (int j = 0; j<4; j++){//on fait varier les colonnes
-        grilleJeu.comparer(combiCachee,grilleJeu);
+        int [] score= new int [2];
+        score=comparateur.comparer(grilleJeu,combiCachee,ligne);//on compare la combi proposée par le joueur à celle qui est cachée, et si le nombre de jetons bien placés est de 4 (donc TOUS), alors la partie est terminée, le joueur a gagné
       
-        if (grilleJeu.resultat[0] == 4 ){
-            System.out.println("Vous avez gagné !!!");
-            return true;
+        if (score[0] == 4 ){
+            System.out.println("Vous avez gagné !!!");//expliqué a la ligne 85
+            return true;//on retourne true si la partie est terminée
         
             }
      //}
      //}
-        return false;
+        return false;//false sinon
      }
        public boolean ajouterJetonDansColonne(jetons JdansC, int colonne){//lorsque le joueur veut ajouter n jeton:
     for (int i=0; i<12; i++){
