@@ -9,12 +9,20 @@ package mastermind_lecornec_tort_2;
  * @author 33782
  */
 public class fenetreDeJeu extends javax.swing.JFrame {
+String[][] grilleJeu=new String[12][4];
 
     /**
      * Creates new form fenetreDeJeu
      */
     public fenetreDeJeu() {
         initComponents();
+        panneaureglejeu.setVisible(false);
+        for (int i=4; i>=0; i--){
+            for (int j=12; j<0; j++){
+            CelluleGraphique CellGraph = new CelluleGraphique();
+            panneaugrille.add(CellGraph);
+        }  
+        }
     }
 
     /**
@@ -26,44 +34,249 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        panneaugrille = new javax.swing.JPanel();
+        Panneauinfojeu = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        btn_col1 = new javax.swing.JButton();
+        btn_col2 = new javax.swing.JButton();
+        btn_col3 = new javax.swing.JButton();
+        btn_col4 = new javax.swing.JButton();
+        panneaureglejeu = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        Panneau_combinaisoncachée = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        panneaugrille.setBackground(new java.awt.Color(255, 255, 255));
+        panneaugrille.setLayout(new java.awt.GridLayout(12, 4));
+        getContentPane().add(panneaugrille, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 20, 380, 500));
+
+        Panneauinfojeu.setBackground(new java.awt.Color(0, 153, 153));
+
+        jButton1.setText("Démarrer partie");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanneauinfojeuLayout = new javax.swing.GroupLayout(Panneauinfojeu);
+        Panneauinfojeu.setLayout(PanneauinfojeuLayout);
+        PanneauinfojeuLayout.setHorizontalGroup(
+            PanneauinfojeuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanneauinfojeuLayout.createSequentialGroup()
+                .addContainerGap(167, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(142, 142, 142))
+        );
+        PanneauinfojeuLayout.setVerticalGroup(
+            PanneauinfojeuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PanneauinfojeuLayout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(jButton1)
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(Panneauinfojeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 420, 100));
+
+        btn_col1.setText("1");
+        btn_col1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_col1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
+
+        btn_col2.setText("2");
+        btn_col2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_col2, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 0, -1, -1));
+
+        btn_col3.setText("3");
+        getContentPane().add(btn_col3, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 0, -1, -1));
+
+        btn_col4.setText("4");
+        btn_col4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col4ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_col4, new org.netbeans.lib.awtextra.AbsoluteConstraints(308, 0, -1, -1));
+
+        panneaureglejeu.setBackground(new java.awt.Color(0, 153, 153));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("Règle du jeu: ");
+        jScrollPane1.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout panneaureglejeuLayout = new javax.swing.GroupLayout(panneaureglejeu);
+        panneaureglejeu.setLayout(panneaureglejeuLayout);
+        panneaureglejeuLayout.setHorizontalGroup(
+            panneaureglejeuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panneaureglejeuLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        panneaureglejeuLayout.setVerticalGroup(
+            panneaureglejeuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panneaureglejeuLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(panneaureglejeu, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 150, 420, 140));
+
+        Panneau_combinaisoncachée.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout Panneau_combinaisoncachéeLayout = new javax.swing.GroupLayout(Panneau_combinaisoncachée);
+        Panneau_combinaisoncachée.setLayout(Panneau_combinaisoncachéeLayout);
+        Panneau_combinaisoncachéeLayout.setHorizontalGroup(
+            Panneau_combinaisoncachéeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 380, Short.MAX_VALUE)
+        );
+        Panneau_combinaisoncachéeLayout.setVerticalGroup(
+            Panneau_combinaisoncachéeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(Panneau_combinaisoncachée, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 550, 380, 80));
+
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+
+        jTextArea2.setBackground(new java.awt.Color(0, 153, 153));
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jTextArea2.setText("Choisisez la couleur que vous souhaitez attribuer : ");
+        jScrollPane2.setViewportView(jTextArea2);
+
+        jButton2.setBackground(new java.awt.Color(255, 51, 51));
+        jButton2.setText("Rouge");
+
+        jButton3.setBackground(new java.awt.Color(255, 255, 0));
+        jButton3.setText("Jaune");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setBackground(new java.awt.Color(255, 153, 0));
+        jButton4.setText("Orange");
+
+        jButton5.setBackground(new java.awt.Color(0, 204, 204));
+        jButton5.setText("Bleue");
+
+        jButton8.setBackground(new java.awt.Color(0, 0, 0));
+        jButton8.setForeground(new java.awt.Color(255, 255, 255));
+        jButton8.setText("Noir");
+
+        jButton9.setText("Blanc");
+
+        jButton10.setBackground(new java.awt.Color(255, 204, 204));
+        jButton10.setText("Rose");
+
+        jButton11.setBackground(new java.awt.Color(0, 204, 102));
+        jButton11.setText("Vert");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 650, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(25, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76)
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(76, 76, 76)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(46, 46, 46))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 620, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(jButton3)
+                    .addComponent(jButton5))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(jButton11)
+                    .addComponent(jButton10))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton8)
+                    .addComponent(jButton9))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 650, 620));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, 410, 240));
 
-        jPanel2.setBackground(new java.awt.Color(255, 51, 0));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, 280, -1));
-
-        setBounds(0, 0, 1044, 702);
+        setBounds(0, 0, 941, 1483);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_col1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_col1ActionPerformed
+
+    private void btn_col2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_col2ActionPerformed
+
+    private void btn_col4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_col4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        panneaureglejeu.setVisible(true);
+       
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,7 +314,27 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Panneau_combinaisoncachée;
+    private javax.swing.JPanel Panneauinfojeu;
+    private javax.swing.JButton btn_col1;
+    private javax.swing.JButton btn_col2;
+    private javax.swing.JButton btn_col3;
+    private javax.swing.JButton btn_col4;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JPanel panneaugrille;
+    private javax.swing.JPanel panneaureglejeu;
     // End of variables declaration//GEN-END:variables
 }
